@@ -56,7 +56,7 @@ Mcp-Session-Id: {{init.response.headers.Mcp-Session-Id}}
     "name": "echo-tool",
     "arguments": {
       "message": "Hello World!",
-      "thinkHard": true
+      "thinkHard": false
     }
   }
 }

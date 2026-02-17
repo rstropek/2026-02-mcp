@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import { mcpGetHandler, mcpMethodNotAllowedHandler, mcpPostHandler } from './mcp-express-handlers.js';
 
 const app = express();
 app.use(express.json());
@@ -14,6 +15,10 @@ app.use(
 
 // Health check endpoint
 app.get('/ping', (req, res) => res.send(JSON.stringify({ message: 'pong' })));
+
+app.post('/mcp', mcpPostHandler);
+app.get('/mcp', mcpGetHandler);
+app.delete('/mcp', mcpMethodNotAllowedHandler);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, error => {
